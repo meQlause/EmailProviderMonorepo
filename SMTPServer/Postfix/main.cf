@@ -1,0 +1,28 @@
+myhostname = mail.ardial.tech
+mydomain = ardial.tech
+myorigin = $mydomain
+inet_interfaces = all
+inet_protocols = ipv4
+
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+relayhost = 
+mynetworks = 127.0.0.0/8, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+home_mailbox = Maildir/
+
+smtpd_banner = $myhostname ESMTP
+biff = no
+append_dot_mydomain = no
+disable_vrfy_command = yes
+smtpd_delay_reject = yes
+
+# For testing only
+smtpd_use_tls = no
+smtp_use_tls = no
+
+# OpenDKIM integration (keep this for signing)
+milter_protocol = 2
+milter_default_action = accept
+smtpd_milters = inet:localhost:8891
+non_smtpd_milters = inet:localhost:8891
+
+debug_peer_level = 2

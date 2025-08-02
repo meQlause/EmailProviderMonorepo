@@ -1,0 +1,1 @@
+mailserv._domainkey.mail.ardial.tech mail.ardial.tech:mail:/etc/opendkim/keys/mail.ardial.tech/mail.private
