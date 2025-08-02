@@ -4,10 +4,23 @@ myorigin = $mydomain
 inet_interfaces = all
 inet_protocols = ipv4
 
-mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
-relayhost = 
+virtual_mailbox_domains = mail.ardial.tech
+virtual_mailbox_base = /vmail
+virtual_minimum_uid = 100
+virtual_uid_maps = static:102
+virtual_gid_maps = static:105
+virtual_mailbox_maps = lmdb:/etc/postfix/vmailbox
+virtual_transport = lmtp:unix:private/dovecot-lmtp
+
+mydestination = localhost
+relayhost =
 mynetworks = 127.0.0.0/8, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 home_mailbox = Maildir/
+
+smtpd_relay_restrictions =
+    permit_mynetworks,
+    permit_sasl_authenticated,
+    reject_unauth_destination
 
 smtpd_banner = $myhostname ESMTP
 biff = no
@@ -15,11 +28,36 @@ append_dot_mydomain = no
 disable_vrfy_command = yes
 smtpd_delay_reject = yes
 
-# For testing only
-smtpd_use_tls = no
-smtp_use_tls = no
+smtpd_milters = inet:localhost:8891
 
-# OpenDKIM integration (keep this for signing)
+# Dovecot SASL AUTH
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+smtpd_tls_auth_only = no
+smtpd_sasl_security_options = noanonymous
+smtpd_sasl_local_domain =
+broken_sasl_auth_clients = yes
+
+# Perbaikan smtpd_recipient_restrictions (hapus duplikat sebelumnya)
+smtpd_recipient_restrictions =
+    permit_sasl_authenticated,
+    permit_mynetworks,
+    reject_unauth_destination
+
+# TLS Umum
+smtpd_tls_cert_file = /etc/postfix/ssl/fullchain.pem
+smtpd_tls_key_file = /etc/postfix/ssl/privkey.pem
+smtpd_tls_security_level = may
+smtp_tls_security_level = may
+smtp_tls_loglevel = 1
+
+# TLS Logging dan hardening opsional
+smtpd_tls_received_header = yes
+smtpd_tls_session_cache_timeout = 3600s
+tls_random_source = dev:/dev/urandom
+
+# OpenDKIM integration
 milter_protocol = 2
 milter_default_action = accept
 smtpd_milters = inet:localhost:8891

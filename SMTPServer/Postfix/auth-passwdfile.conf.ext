@@ -1,0 +1,16 @@
+# Authentication for passwd-file users. Included from 10-auth.conf.
+#
+# passwd-like file with specified location.
+# <doc/wiki/AuthDatabase.PasswdFile.txt>
+
+passdb {
+  driver = passwd-file
+  args = /etc/dovecot/passwd
+}
+
+userdb {
+  driver = static
+  args = uid=102 gid=105 home=/vmail/%d/%n
+}
+
+
