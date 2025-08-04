@@ -67,22 +67,28 @@ jobs:
       - name: Deploy to server
         run: |
           ssh ardial@92.113.145.8 '
-            # Switch to root user and execute commands
             sudo bash -c "
               # Pull the latest image
               docker pull ${{ env.DOCKER_IMAGE_FE }}:prod
               
-              # Stop and remove all containers if any exist
-              if [ \$(docker ps -aq | wc -l) -gt 0 ]; then
-                docker stop \$(docker ps -aq)
-                docker rm \$(docker ps -aq)
+              docker stop fe-emailprovider 2>/dev/null || true
+              docker rm fe-emailprovider 2>/dev/null || true
+              
+              port_containers=$(docker ps -q --filter "publish=4001")
+              if [ -n "$port_containers" ]; then
+                docker stop $port_containers
+                docker rm $port_containers
               fi
               
-              # Kill any process using port 4001
               lsof -ti:4001 | xargs kill -9 2>/dev/null || true
               
-              # Run the new container
+              sleep 2
+              
+              docker container prune -f
+              docker image prune -f
+              
               docker run -d \
+                --name fe-emailprovider \
                 --restart unless-stopped \
                 -p 127.0.0.1:4001:4001 \
                 ${{ env.DOCKER_IMAGE_FE }}:prod
