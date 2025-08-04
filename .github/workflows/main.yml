@@ -51,7 +51,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile.prod
+          file: ./frontend/Dockerfile
           push: true
           tags: ${{ env.DOCKER_IMAGE_FE }}:prod
           cache-from: type=gha
@@ -78,13 +78,13 @@ jobs:
                 docker rm \$(docker ps -aq)
               fi
               
-              # Kill any process using port 3001
-              lsof -ti:3001 | xargs kill -9 2>/dev/null || true
+              # Kill any process using port 4001
+              lsof -ti:4001 | xargs kill -9 2>/dev/null || true
               
               # Run the new container
               docker run -d \
                 --restart unless-stopped \
-                -p 127.0.0.1:3001:3001 \
+                -p 127.0.0.1:4001:4001 \
                 ${{ env.DOCKER_IMAGE }}:prod
             "
           '
