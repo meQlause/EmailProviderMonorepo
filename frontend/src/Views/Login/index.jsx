@@ -1,8 +1,8 @@
 const Login = () => {
   return (
-    <AuthLayout>
-      <h1>Login</h1>
-    </AuthLayout>
+    <>
+      <img src="/images/logo.png" alt="Logo" />;
+    </>
   );
 };
 
