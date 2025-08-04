@@ -1,6 +1,6 @@
 import { useState } from "react";
-import LeftPanel from "../components/login/LeftPanel";
-import RightPanel from "../components/login/RightPanel";
+import LeftPanel from "../Components/login/LeftPanel";
+import RightPanel from "../Components/login/RightPanel";
 
 const LoginPage = () => {
   const [selectedInput, setSelectedInput] = useState("");
