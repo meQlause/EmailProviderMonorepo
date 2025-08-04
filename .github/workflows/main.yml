@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 env:
-  DOCKER_IMAGE_FE: ardialqlause/fe-emailProvider
+  DOCKER_IMAGE_FE: ardialqlause/fe-emailprovider
 
 jobs:
   detect-changes:
