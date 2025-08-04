@@ -24,7 +24,7 @@ const LoginPage = () => {
         {...fadeIn}
       >
         <motion.div
-          className="bg-[#f8f8f8] px-20 py-10 h-[700px] rounded-4xl w-[550px] flex flex-col"
+          className="bg-[#f8f8f8] px-20 py-10 relative min-w-[550px] min-h-[700px] w-[550px] h-[700px] rounded-4xl  flex flex-col"
           {...fadeIn}
           transition={{ ...fadeIn.transition, delay: 0.1 }}
         >
@@ -169,7 +169,7 @@ const LoginPage = () => {
           </motion.div>
         </motion.div>
         <motion.div
-          className="relative w-[550px] h-[700px]"
+          className="relative min-w-[550px] min-h-[700px] w-[550px] h-[700px]"
           {...fadeInFromRight}
           transition={{ ...fadeInFromRight.transition, delay: 0.2 }}
         >
