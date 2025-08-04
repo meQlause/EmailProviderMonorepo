@@ -20,7 +20,7 @@ const LoginPage = () => {
   return (
     <>
       <motion.div
-        className="flex mx-auto px-50 gap-10 justify-between items-center h-screen w-screen"
+        className="flex mx-auto px-50 gap-10 justify-center items-center h-screen w-screen"
         {...fadeIn}
       >
         <motion.div
