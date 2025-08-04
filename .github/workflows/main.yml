@@ -85,6 +85,6 @@ jobs:
               docker run -d \
                 --restart unless-stopped \
                 -p 127.0.0.1:4001:4001 \
-                ${{ env.DOCKER_IMAGE }}:prod
+                ${{ env.DOCKER_IMAGE_FE }}:prod
             "
           '
