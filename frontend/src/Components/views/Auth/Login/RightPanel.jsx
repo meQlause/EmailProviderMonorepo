@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import AnimatedDiv from "./AnimatedDiv";
+import AnimatedDiv from "../../../ui/Animation/AnimatedDiv";
 
 const RightPanel = () => (
   <AnimatedDiv className="relative w-[550px] h-[700px]" fromRight delay={0.2}>

@@ -1,7 +1,7 @@
-import AnimatedDiv from "./AnimatedDiv";
-import LoginForm from "./LoginForm";
+import AnimatedDiv from "../../../ui/Animation/AnimatedDiv";
+import AuthInputRegister from "../../../ui/AuthInput/AuthInputRegister";
 
-const LeftPanel = ({ selectedInput, setSelectedInput }) => (
+const RegisterForm = ({ selectedInput, setSelectedInput }) => (
   <AnimatedDiv
     className="bg-[#f8f8f8] px-20 py-10 w-[550px] h-[700px] rounded-4xl flex flex-col"
     delay={0.1}
@@ -12,23 +12,23 @@ const LeftPanel = ({ selectedInput, setSelectedInput }) => (
       </AnimatedDiv>
 
       <AnimatedDiv className="flex gap-2 flex-col" delay={0.4}>
-        <span className="text-4xl font-['Manrope'] font-medium">
-          Welcome to
-        </span>
+        {/* <span className="text-4xl font-['Manrope'] font-medium">
+          Sign Up
+        </span> */}
         <span className="text-4xl font-['Manrope'] font-bold">
-          EmailProvider
+          Sign Up
         </span>
       </AnimatedDiv>
 
       <div className="flex flex-col gap-4">
-        <AnimatedDiv delay={0.6}>
+        {/* <AnimatedDiv delay={0.6}>
           <p className="text-sm text-[#868686] font-thin">
             Gaze and attention modeling Powered by AI is optimizing virtual
             reality experiences
           </p>
-        </AnimatedDiv>
+        </AnimatedDiv> */}
 
-        <LoginForm
+        <AuthInputRegister
           selectedInput={selectedInput}
           setSelectedInput={setSelectedInput}
         />
@@ -44,4 +44,4 @@ const LeftPanel = ({ selectedInput, setSelectedInput }) => (
   </AnimatedDiv>
 );
 
-export default LeftPanel;
+export default RegisterForm;

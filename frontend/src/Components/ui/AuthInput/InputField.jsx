@@ -1,4 +1,5 @@
-import AnimatedDiv from "./AnimatedDiv";
+import AnimatedDiv from "../Animation/AnimatedDiv";
+
 
 const InputField = ({
   icon: Icon,
