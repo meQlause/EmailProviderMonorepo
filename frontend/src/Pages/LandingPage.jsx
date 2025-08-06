@@ -1,4 +1,4 @@
-function HomePage() {
+const LandingPage = () => {
 
   return (
     <div>
@@ -7,4 +7,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default LandingPage;
