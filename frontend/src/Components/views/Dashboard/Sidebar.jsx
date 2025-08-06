@@ -1,5 +1,5 @@
 import React from 'react'
-import { Mail, Lock, ArrowBigDown, ArrowDownRight, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import EachUtils from '../../../utils/EachUtils'
 import { LIST_SIDEBAR } from './Dasboard.constant'
 

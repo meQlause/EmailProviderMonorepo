@@ -3,8 +3,8 @@ export const LIST_SIDEBAR = [
   {
     key: "inbox",
     title: "Inbox",
-    href: "/dashboard",
-    icon: "dashboard",
+    path: "/inbox",
+    icon: "inbox",
   },
   {
     key: "sent",
