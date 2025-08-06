@@ -1,6 +1,6 @@
 import { useState } from "react";
-import AuthLayout from "../Components/layouts/AuthLayout";
-import RegisterForm from "../Components/views/Auth/Register/Index.jsx";
+import AuthLayout from "../Components/layouts/AuthLayout/index.jsx";
+import RegisterForm from "../Components/views/Auth/Register/Index.jsx.jsx";
 import PageHead from "../Components/commons/PageHead.jsx";
 import RightPanel from "../Components/views/Auth/Login/RightPanel.jsx";
 
