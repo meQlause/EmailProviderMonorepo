@@ -1,18 +1,22 @@
 import { useState } from "react";
-import LeftPanel from "../Components/login/LeftPanel";
-import RightPanel from "../Components/login/RightPanel";
+
+import RightPanel from "../Components/views/Auth/Login/RightPanel";
+import AuthLayout from "../Components/layouts/AuthLayout";
+import LoginForm from "../Components/views/Auth/Login";
+import PageHead from "../Components/commons/PageHead";
 
 const LoginPage = () => {
   const [selectedInput, setSelectedInput] = useState("");
+  PageHead("Login");
 
   return (
-    <div className="flex mx-auto px-50 gap-10 justify-center items-center h-screen w-screen">
-      <LeftPanel
+    <AuthLayout>
+      <LoginForm
         selectedInput={selectedInput}
         setSelectedInput={setSelectedInput}
       />
       <RightPanel />
-    </div>
+    </AuthLayout>
   );
 };
 
