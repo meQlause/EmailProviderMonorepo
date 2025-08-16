@@ -3,14 +3,12 @@ import { useState } from "react";
 import RightPanel from "../Components/views/Auth/Login/RightPanel";
 import AuthLayout from "../Components/layouts/AuthLayout";
 import LoginForm from "../Components/views/Auth/Login";
-import PageHead from "../Components/commons/PageHead";
 
 const LoginPage = () => {
   const [selectedInput, setSelectedInput] = useState("");
-  PageHead("Login");
 
   return (
-    <AuthLayout>
+    <AuthLayout title="Login">
       <LoginForm
         selectedInput={selectedInput}
         setSelectedInput={setSelectedInput}
